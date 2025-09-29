@@ -1,1 +1,404 @@
 # vikna
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вікна та Двері Переяслав - Продаж та встановлення</title>
+    <style>
+        /* Основные стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Шапка */
+        header {
+            background-color: #1a3a5f;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #4da8da;
+        }
+        
+        /* Герой секция */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1920x600') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #4da8da;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #1a3a5f;
+        }
+        
+        /* Секции */
+        section {
+            padding: 4rem 0;
+        }
+        
+        section:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #1a3a5f;
+        }
+        
+        /* О нас */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 2rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        
+        /* Процедура заказа */
+        .order-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .step {
+            flex: 0 0 calc(33.333% - 1rem);
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .step h3 {
+            color: #1a3a5f;
+            margin-bottom: 1rem;
+        }
+        
+        /* Галерея */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            height: 200px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Контакты */
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .contact-details, .contact-form {
+            flex: 1;
+            min-width: 300px;
+            padding: 1rem;
+        }
+        
+        .contact-details p {
+            margin-bottom: 1rem;
+        }
+        
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .contact-form input, .contact-form textarea {
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .contact-form button {
+            background: #4da8da;
+            color: white;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .contact-form button:hover {
+            background: #1a3a5f;
+        }
+        
+        /* Футер */
+        footer {
+            background: #1a3a5f;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+            }
+            
+            .step {
+                flex: 0 0 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">Вікна та Двері Переяслав</div>
+            <nav>
+                <ul>
+                    <li><a href="#about">Про нас</a></li>
+                    <li><a href="#order">Як замовити</a></li>
+                    <li><a href="#gallery">Галерея</a></li>
+                    <li><a href="#contacts">Контакти</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Герой секция -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Якісні вікна та двері у Переяславі</h1>
+            <p>Професійний підбір, продаж та встановлення вікон і дверей</p>
+            <a href="#contacts" class="btn">Зв'язатися з нами</a>
+        </div>
+    </section>
+
+    <!-- О нас -->
+    <section id="about">
+        <div class="container">
+            <h2>Про нас</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Наш магазин працює за адресою:</p>
+                    <p><strong>м. Переяслав, вул. Шкільна 44а, позиція 10</strong></p>
+                    <p><strong>Графік роботи:</strong> Вт-Нд з 9:00 до 16:00</p>
+                    <p>Ми спеціалізуємося на продажі та встановленні якісних вікон та дверей. Наша команда професіоналів допоможе вам підібрати оптимальні рішення для вашого дому чи офісу.</p>
+                </div>
+                <div class="about-image">
+                    <!-- ВСТАВЬТЕ ФОТО МАГАЗИНА ЗДЕСЬ -->
+                    <img src="https://via.placeholder.com/500x300" alt="Наш магазин">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Процедура заказа -->
+    <section id="order">
+        <div class="container">
+            <h2>Як замовити вікна чи двері</h2>
+            <div class="order-steps">
+                <div class="step">
+                    <h3>1. Орієнтовна ціна</h3>
+                    <p>Ви можете самостійно приблизно виміряти свої вікна та ми зробимо прорахунок. Це допоможе вам зрозуміти бюджет замовлення.</p>
+                </div>
+                <div class="step">
+                    <h3>2. Точний замір</h3>
+                    <p>Для точного розрахунку ціни знадобиться майстер. Послуга заміру оплачується окремо. У разі замовлення - замір, виготовлення, доставка враховуються у загальну вартість.</p>
+                </div>
+                <div class="step">
+                    <h3>3. Вибір параметрів</h3>
+                    <p>Після заміру ви обираєте всі необхідні параметри: кількість камер, тип профілю, колір, відкривання, наявність москітної сітки та інші деталі.</p>
+                </div>
+                <div class="step">
+                    <h3>4. Оплата та договір</h3>
+                    <p>Укладається договір з переліком вибраних параметрів, сумою оплати та іншими деталями. Оплачується мінімум 50% вартості замовлення.</p>
+                </div>
+                <div class="step">
+                    <h3>5. Виробництво та доставка</h3>
+                    <p>Вікна виготовляються на заводі. По готовності вони доставляються до вас.</p>
+                </div>
+                <div class="step">
+                    <h3>6. Встановлення</h3>
+                    <p>Майстер приїде в зручний для вас день для встановлення конструкції.</p>
+                </div>
+                <div class="step">
+                    <h3>7. Оплата решти</h3>
+                    <p>Після завершення встановлення оплачується решта суми (50%), можливе відтермінування.</p>
+                </div>
+                <div class="step">
+                    <h3>8. Гарантія</h3>
+                    <p>Ми надаємо гарантію від заводу. У разі необхідності, всі недоліки будуть оперативно усунені або замінено.</p>
+                </div>
+                <div class="step">
+                    <h3>9. Відгук</h3>
+                    <p>Після завершення роботи ми будемо раді почути ваш відгук про нашу роботу. Ваша думка важлива для нас!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Галерея -->
+    <section id="gallery">
+        <div class="container">
+            <h2>Наші роботи</h2>
+            <div class="gallery">
+                <!-- ВСТАВЬТЕ ФОТО ВАШИХ РОБІТ ЗДЕСЬ -->
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x200" alt="Фото роботи 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x200" alt="Фото роботи 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x200" alt="Фото роботи 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x200" alt="Фото роботи 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x200" alt="Фото роботи 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x200" alt="Фото роботи 6">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contacts">
+        <div class="container">
+            <h2>Контакти</h2>
+            <div class="contact-info">
+                <div class="contact-details">
+                    <p><strong>Email:</strong> viknapereyaslavhm@gmail.com</p>
+                    <p><strong>Адреса:</strong> м. Переяслав, вул. Шкільна 44а, поз. 10</p>
+                    <p><strong>Телефон:</strong> +380 (63) 970 18 10</p>
+                    <p><strong>Графік роботи:</strong> Вт-Нд з 9:00 до 16:00</p>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <input type="text" placeholder="Ваше ім'я" required>
+                        <input type="email" placeholder="Ваш email" required>
+                        <input type="tel" placeholder="Ваш телефон">
+                        <textarea placeholder="Ваше повідомлення" rows="5" required></textarea>
+                        <button type="submit">Надіслати</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Вікна та Двері Переяслав. Всі права захищені.</p>
+        </div>
+    </footer>
+</body>
+</html>
